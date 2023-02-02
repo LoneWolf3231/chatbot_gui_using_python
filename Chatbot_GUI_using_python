@@ -59,7 +59,7 @@ def chat():
         botsaid.set(random.choice(botan))
         speak(random.choice(botan))
     elif userinput.get().lower() in doctors:
-        botan = ["Dr.Ishan:general-surgeon, Dr.Kishan:gynecologist,  Dr.Karthik-dentist,  Dr.Kunal-cardiologist"]
+        botan = ["Dr.Ishan:General-surgeon, Dr.Kishan:Gynecologist,  Dr.Karthik:Dentist,  Dr.Kunal:Cardiologist"]
         botsaid.set(random.choice(botan))
         speak(random.choice(botan))
     elif userinput.get().lower() in appointments:
