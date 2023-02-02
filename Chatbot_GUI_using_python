@@ -15,7 +15,8 @@ def speak(msg):
 
 root = Tk()
 
-root.title("Chat Bot")
+root.title("Chat bot")
+
 
 root.geometry("550x350+250+130")
 
@@ -59,7 +60,7 @@ def chat():
         botsaid.set(random.choice(botan))
         speak(random.choice(botan))
     elif userinput.get().lower() in doctors:
-        botan = ["Dr.Ishan:General-surgeon, Dr.Kishan:Gynecologist,  Dr.Karthik:Dentist,  Dr.Kunal:Cardiologist"]
+        botan = ["Dr.Ishan:general-surgeon, Dr.Kishan:gynecologist,  Dr.Karthik-dentist,  Dr.Kunal-cardiologist"]
         botsaid.set(random.choice(botan))
         speak(random.choice(botan))
     elif userinput.get().lower() in appointments:
@@ -73,27 +74,14 @@ def chat():
             botan = ["enter the date of appointment"]
             botsaid.set(random.choice(botan))
             speak(random.choice(botan))
-            # my_w = tk.Tk()
-            # my_w.geometry("380x220")
-            # cal = DateEntry(my_w, selectmode='day')
-            # cal.grid(row=1, column=1, padx=20, pady=30)
-            #
-            # def my_upd():  # triggered on Button Click
-            #     l1.config(text=cal.get_date())  # read and display date
-            #
-            # l1 = tk.Label(my_w, text='data', bg='yellow')  # Label to display date
-            # l1.grid(row=1, column=3)
-            #
-            # b1 = tk.Button(my_w, text='Read', command=lambda: my_upd())
-            # b1.grid(row=1, column=2)
-            #
-            # userinput = cal.get_date()
-
+        
     elif userinput.get().isdigit():
         speak("entered date is " + userinput.get())
         givendate = int(userinput.get())
-        speak("select the time from ")
+        botan4=givendate
+        speak("Select the time from 10am, 1pm, 3pm, 5pm, 8pm")
         speak(times)
+        botsaid.set(random.choice(botan4))
 
     elif userinput.get().lower() in times:
         botan3=["Appointment booked at" + userinput.get().lower()]
@@ -112,16 +100,16 @@ head.place(x=200, y=10)
 holder = Frame(root)
 holder.place(x=80, y=100)
 
-usertext = Label(holder, text="Input-", font=("times new roman", 15))
+usertext = Label(holder, text="Input-", font=("times new roman", 15),height=3)
 usertext.grid(row=0, column=0)
 
 userinput = Entry(holder, font=("times new roman", 15))
 userinput.grid(row=0, column=1)
 
 submitbtn = Button(holder, text="Submit", font=("times new roman", 15), command=chat)
-submitbtn.grid(row=2, column=0)
+submitbtn.grid(row=2, column=1)
 
-bottext = Label(holder, text="Devi:", font=("times new roman", 15))
+bottext = Label(holder, text="Devi:", font=("times new roman", 15),height=3)
 bottext.grid(row=1, column=0)
 
 botoutput = Entry(holder, textvariable=botsaid, font=("times new roman", 15))
