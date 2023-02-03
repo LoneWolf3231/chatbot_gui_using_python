@@ -31,7 +31,6 @@ appointments = ["book an appointment", "book", "appointment", "book appointment"
                 "when can i meet the doctor?", "doctor meet"]
 services = ["lab test", "general checkup", "doctor appointment"]
 times = ["10am", "1pm", "3pm", "5pm", "8pm"]
-givendate = int(0)
 print("****\n")
 
 
@@ -76,12 +75,12 @@ def chat():
         speak(random.choice(botan))
 
     elif userinput.get().isdigit():
-        speak("entered date is " + userinput.get())
-        givendate = int(userinput.get())
-        botan4 = givendate
+        speak("entered date is ")
+        speak(userinput.get())
+        botan4 = userinput.get()
         speak("Select the time from")
+        botsaid.set(times)
         speak(times)
-        botsaid.set(random.choice(botan4))
 
     elif userinput.get().lower() in times:
         botan3 = ["Appointment booked at " + userinput.get().lower()]
