@@ -70,7 +70,10 @@ def chat():
         botsaid.set(botan2)
         speak(botan2)
     elif userinput.get().lower() in services:
+        botan1=["You have selected " + userinput.get().lower() ]
         botan = ["enter the date of appointment in ddmmyyyy"]
+        botsaid.set(botan1)
+        speak(botan1)
         botsaid.set(random.choice(botan))
         speak(random.choice(botan))
 
