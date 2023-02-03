@@ -1,11 +1,11 @@
 import random
 import pyttsx3
 from tkinter import *
+
 engine = pyttsx3.init("sapi5")
 voice = engine.getProperty("voices")
 engine.setProperty('voice', voice[1].id)
 import tkinter as tk
-
 
 
 def speak(msg):
@@ -17,7 +17,6 @@ root = Tk()
 
 root.title("Chat bot")
 
-
 root.geometry("550x350+250+130")
 
 botsaid = StringVar()
@@ -28,10 +27,10 @@ howare = ["how are you", "whats up", "how you doing"]
 name = ["who are you", "what is your name", "do you have any name", "what should i call you"]
 hours = ["when are you guys open", "what are your hours", "hours of operation", "time", "work"]
 doctors = ["any information about doctors?"]
-appointments=["book an appointment","book","appointment","book appointment","when can i come",
-              "when can i meet the doctor?","doctor meet"]
-services=["lab test", "general checkup", "doctor appointment"]
-times=["10am","1pm","3pm","5pm","8pm"]
+appointments = ["book an appointment", "book", "appointment", "book appointment", "when can i come",
+                "when can i meet the doctor?", "doctor meet"]
+services = ["lab test", "general checkup", "doctor appointment"]
+times = ["10am", "1pm", "3pm", "5pm", "8pm"]
 givendate = int(0)
 print("****\n")
 
@@ -48,7 +47,8 @@ def chat():
         speak(random.choice(botan))
 
     elif userinput.get().lower() in name:
-        botan = ["My name is Devi. I am your personal healthcare companion", "You can call me Devi", "Devi the Healthcare bot in your service","Call me Devi"]
+        botan = ["My name is Devi. I am your personal healthcare companion", "You can call me Devi",
+                 "Devi the Healthcare bot in your service", "Call me Devi"]
         botsaid.set(random.choice(botan))
         speak(random.choice(botan))
     elif userinput.get().lower() in bye:
@@ -71,25 +71,25 @@ def chat():
         botsaid.set(botan2)
         speak(botan2)
     elif userinput.get().lower() in services:
-            botan = ["enter the date of appointment"]
-            botsaid.set(random.choice(botan))
-            speak(random.choice(botan))
-        
+        botan = ["enter the date of appointment in ddmmyyyy"]
+        botsaid.set(random.choice(botan))
+        speak(random.choice(botan))
+
     elif userinput.get().isdigit():
         speak("entered date is " + userinput.get())
         givendate = int(userinput.get())
-        botan4=givendate
-        speak("Select the time from 10am, 1pm, 3pm, 5pm, 8pm")
+        botan4 = givendate
+        speak("Select the time from")
         speak(times)
         botsaid.set(random.choice(botan4))
 
     elif userinput.get().lower() in times:
-        botan3=["Appointment booked at" + userinput.get().lower()]
+        botan3 = ["Appointment booked at " + userinput.get().lower()]
         botsaid.set(random.choice(botan3))
         speak(random.choice(botan3))
 
     else:
-        botan=["did not get that"]
+        botan = ["did not get that"]
         botsaid.set(random.choice(botan))
         speak(random.choice(botan))
 
@@ -100,7 +100,7 @@ head.place(x=200, y=10)
 holder = Frame(root)
 holder.place(x=80, y=100)
 
-usertext = Label(holder, text="Input-", font=("times new roman", 15),height=3)
+usertext = Label(holder, text="Input-", font=("times new roman", 15), height=3)
 usertext.grid(row=0, column=0)
 
 userinput = Entry(holder, font=("times new roman", 15))
@@ -109,7 +109,7 @@ userinput.grid(row=0, column=1)
 submitbtn = Button(holder, text="Submit", font=("times new roman", 15), command=chat)
 submitbtn.grid(row=2, column=1)
 
-bottext = Label(holder, text="Devi:", font=("times new roman", 15),height=3)
+bottext = Label(holder, text="Devi:", font=("times new roman", 15), height=3)
 bottext.grid(row=1, column=0)
 
 botoutput = Entry(holder, textvariable=botsaid, font=("times new roman", 15))
